@@ -1,0 +1,20 @@
+create table User (
+user_id INT(11) NOT NULL AUTO_INCREMENT,
+user_name VARCHAR(150) NOT NULL,
+password VARCHAR(12) NOT NULL,
+root_folder VARCHAR(200),
+email VARCHAR(200),
+PRIMARY KEY (user_id));
+
+
+create table SearchName(
+search_id INT(11) NOT NULL AUTO_INCREMENT,
+search_name VARCHAR(100) NOT NULL,
+user_id INT(11) NOT NULL,
+file_location VARCHAR(200) NOT NULL,
+search_criteria TEXT NOT NULL,
+PRIMARY KEY(search_id),
+FOREIGN KEY fk_user_id(user_id)
+REFERENCES User(user_id)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
